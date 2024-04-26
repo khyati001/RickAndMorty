@@ -18,12 +18,11 @@ class MainActivity : ComponentActivity() {
 
     @Inject
     lateinit var characterViewModelFactory: CharacterViewModelFactory
-    private lateinit var characterViewModel: CharacterViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (application as MyApplication).applicationComponent.inject(this)
-        characterViewModel =
+        val characterViewModel =
             ViewModelProvider(this, characterViewModelFactory)[CharacterViewModel::class.java]
 
         setContent {
